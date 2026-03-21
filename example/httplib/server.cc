@@ -19,8 +19,8 @@ int main()
         rsp.status = 200;
         rsp.body = html_body;
     });
-    svr.Get(R"(/numbers/(\d+))", [&](const httplib::Request &req, httplib::Response &rsp)
-            {
+    
+    svr.Get(R"(/numbers/(\d+))", [&](const httplib::Request &req, httplib::Response &rsp){
         std::cout << req.method << std::endl;
         std::cout << req.path << std::endl;
         for (auto& it : req.headers) {
@@ -36,7 +36,8 @@ int main()
         rsp.set_content(html_body, "text/html");
         rsp.set_header("Content-Length", std::to_string(html_body.size()));
         rsp.status = 200;
-        rsp.body = html_body; });
+        rsp.body = html_body; 
+    });
 
     svr.listen("0.0.0.0", 9000);
 
