@@ -1,0 +1,149 @@
+--- contention
+cycles/second=1000000000
+55e4258e8000-55e425924000 r--p 00000000 fd:00 2366357                    /home/dev/workspace/cpp-microservices-scaffold/example/brpc/simple/server
+55e425924000-55e425c1e000 r-xp 0003c000 fd:00 2366357                    /home/dev/workspace/cpp-microservices-scaffold/example/brpc/simple/server
+55e425c1e000-55e425e8d000 r--p 00336000 fd:00 2366357                    /home/dev/workspace/cpp-microservices-scaffold/example/brpc/simple/server
+55e425e8d000-55e425e9e000 r--p 005a4000 fd:00 2366357                    /home/dev/workspace/cpp-microservices-scaffold/example/brpc/simple/server
+55e425e9e000-55e425ea1000 rw-p 005b5000 fd:00 2366357                    /home/dev/workspace/cpp-microservices-scaffold/example/brpc/simple/server
+55e425ea1000-55e426b4c000 rw-p 00000000 00:00 0 
+55e45c9e2000-55e45cd07000 rw-p 00000000 00:00 0                          [heap]
+7f811c000000-7f811c021000 rw-p 00000000 00:00 0 
+7f811c021000-7f8120000000 ---p 00000000 00:00 0 
+7f8124000000-7f8124021000 rw-p 00000000 00:00 0 
+7f8124021000-7f8128000000 ---p 00000000 00:00 0 
+7f8128000000-7f8128021000 rw-p 00000000 00:00 0 
+7f8128021000-7f812c000000 ---p 00000000 00:00 0 
+7f8130000000-7f8130279000 rw-p 00000000 00:00 0 
+7f8130279000-7f8134000000 ---p 00000000 00:00 0 
+7f8137dfe000-7f8137dff000 ---p 00000000 00:00 0 
+7f8137dff000-7f8137eff000 rw-p 00000000 00:00 0 
+7f8137eff000-7f8137f00000 ---p 00000000 00:00 0 
+7f8137f00000-7f8138000000 rw-p 00000000 00:00 0 
+7f8138000000-7f8138068000 rw-p 00000000 00:00 0 
+7f8138068000-7f813c000000 ---p 00000000 00:00 0 
+7f813c000000-7f813c021000 rw-p 00000000 00:00 0 
+7f813c021000-7f8140000000 ---p 00000000 00:00 0 
+7f8140000000-7f8140021000 rw-p 00000000 00:00 0 
+7f8140021000-7f8144000000 ---p 00000000 00:00 0 
+7f8144000000-7f8144021000 rw-p 00000000 00:00 0 
+7f8144021000-7f8148000000 ---p 00000000 00:00 0 
+7f8148000000-7f81480ef000 rw-p 00000000 00:00 0 
+7f81480ef000-7f814c000000 ---p 00000000 00:00 0 
+7f814c000000-7f814c021000 rw-p 00000000 00:00 0 
+7f814c021000-7f8150000000 ---p 00000000 00:00 0 
+7f815006f000-7f8150070000 ---p 00000000 00:00 0 
+7f8150070000-7f81501f1000 rw-p 00000000 00:00 0 
+7f81501f1000-7f81501f2000 ---p 00000000 00:00 0 
+7f81501f2000-7f8150373000 rw-p 00000000 00:00 0 
+7f8150373000-7f8150374000 ---p 00000000 00:00 0 
+7f8150374000-7f8150474000 rw-p 00000000 00:00 0 
+7f8150474000-7f8150475000 ---p 00000000 00:00 0 
+7f8150475000-7f8150575000 rw-p 00000000 00:00 0 
+7f8150575000-7f8150576000 ---p 00000000 00:00 0 
+7f8150576000-7f81507f9000 rw-p 00000000 00:00 0 
+7f81507f9000-7f81507fa000 ---p 00000000 00:00 0 
+7f81507fa000-7f8150ffa000 rw-p 00000000 00:00 0 
+7f8150ffa000-7f8150ffb000 ---p 00000000 00:00 0 
+7f8150ffb000-7f81517fb000 rw-p 00000000 00:00 0 
+7f81517fb000-7f81517fc000 ---p 00000000 00:00 0 
+7f81517fc000-7f8151ffc000 rw-p 00000000 00:00 0 
+7f8151ffc000-7f8151ffd000 ---p 00000000 00:00 0 
+7f8151ffd000-7f81527fd000 rw-p 00000000 00:00 0 
+7f81527fd000-7f81527fe000 ---p 00000000 00:00 0 
+7f81527fe000-7f8152ffe000 rw-p 00000000 00:00 0 
+7f8152ffe000-7f8152fff000 ---p 00000000 00:00 0 
+7f8152fff000-7f81537ff000 rw-p 00000000 00:00 0 
+7f81537ff000-7f8153800000 ---p 00000000 00:00 0 
+7f8153800000-7f8154000000 rw-p 00000000 00:00 0 
+7f8154000000-7f8154037000 rw-p 00000000 00:00 0 
+7f8154037000-7f8158000000 ---p 00000000 00:00 0 
+7f8158026000-7f8158228000 rw-p 00000000 00:00 0 
+7f8158228000-7f8158229000 ---p 00000000 00:00 0 
+7f8158229000-7f81584ac000 rw-p 00000000 00:00 0 
+7f81584ac000-7f81584ad000 ---p 00000000 00:00 0 
+7f81584ad000-7f8158cad000 rw-p 00000000 00:00 0 
+7f8158cad000-7f8158cae000 ---p 00000000 00:00 0 
+7f8158cae000-7f81594ae000 rw-p 00000000 00:00 0 
+7f81594ae000-7f81594af000 ---p 00000000 00:00 0 
+7f81594af000-7f8159caf000 rw-p 00000000 00:00 0 
+7f8159caf000-7f8159cb0000 ---p 00000000 00:00 0 
+7f8159cb0000-7f815a4b6000 rw-p 00000000 00:00 0 
+7f815a4b6000-7f815a4b7000 r--p 00000000 00:31 281274                     /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f815a4b7000-7f815a4b8000 r-xp 00001000 00:31 281274                     /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f815a4b8000-7f815a4b9000 r--p 00002000 00:31 281274                     /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f815a4b9000-7f815a4ba000 r--p 00002000 00:31 281274                     /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f815a4ba000-7f815a4bb000 rw-p 00003000 00:31 281274                     /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f815a4bb000-7f815a4bd000 r--p 00000000 00:31 281367                     /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f815a4bd000-7f815a4ce000 r-xp 00002000 00:31 281367                     /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f815a4ce000-7f815a4d4000 r--p 00013000 00:31 281367                     /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f815a4d4000-7f815a4d5000 ---p 00019000 00:31 281367                     /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f815a4d5000-7f815a4d6000 r--p 00019000 00:31 281367                     /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f815a4d6000-7f815a4d7000 rw-p 0001a000 00:31 281367                     /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f815a4d7000-7f815a4d9000 r--p 00000000 00:31 927856                     /usr/lib/x86_64-linux-gnu/libsnappy.so.1.1.8
+7f815a4d9000-7f815a4dd000 r-xp 00002000 00:31 927856                     /usr/lib/x86_64-linux-gnu/libsnappy.so.1.1.8
+7f815a4dd000-7f815a4df000 r--p 00006000 00:31 927856                     /usr/lib/x86_64-linux-gnu/libsnappy.so.1.1.8
+7f815a4df000-7f815a4e0000 r--p 00007000 00:31 927856                     /usr/lib/x86_64-linux-gnu/libsnappy.so.1.1.8
+7f815a4e0000-7f815a4e1000 rw-p 00008000 00:31 927856                     /usr/lib/x86_64-linux-gnu/libsnappy.so.1.1.8
+7f815a4e1000-7f815a509000 r--p 00000000 00:31 280857                     /usr/lib/x86_64-linux-gnu/libc.so.6
+7f815a509000-7f815a69e000 r-xp 00028000 00:31 280857                     /usr/lib/x86_64-linux-gnu/libc.so.6
+7f815a69e000-7f815a6f6000 r--p 001bd000 00:31 280857                     /usr/lib/x86_64-linux-gnu/libc.so.6
+7f815a6f6000-7f815a6f7000 ---p 00215000 00:31 280857                     /usr/lib/x86_64-linux-gnu/libc.so.6
+7f815a6f7000-7f815a6fb000 r--p 00215000 00:31 280857                     /usr/lib/x86_64-linux-gnu/libc.so.6
+7f815a6fb000-7f815a6fd000 rw-p 00219000 00:31 280857                     /usr/lib/x86_64-linux-gnu/libc.so.6
+7f815a6fd000-7f815a70a000 rw-p 00000000 00:00 0 
+7f815a70a000-7f815a70d000 r--p 00000000 00:31 281097                     /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f815a70d000-7f815a724000 r-xp 00003000 00:31 281097                     /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f815a724000-7f815a728000 r--p 0001a000 00:31 281097                     /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f815a728000-7f815a729000 r--p 0001d000 00:31 281097                     /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f815a729000-7f815a72a000 rw-p 0001e000 00:31 281097                     /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f815a72a000-7f815a738000 r--p 00000000 00:31 281180                     /usr/lib/x86_64-linux-gnu/libm.so.6
+7f815a738000-7f815a7b4000 r-xp 0000e000 00:31 281180                     /usr/lib/x86_64-linux-gnu/libm.so.6
+7f815a7b4000-7f815a80f000 r--p 0008a000 00:31 281180                     /usr/lib/x86_64-linux-gnu/libm.so.6
+7f815a80f000-7f815a810000 r--p 000e4000 00:31 281180                     /usr/lib/x86_64-linux-gnu/libm.so.6
+7f815a810000-7f815a811000 rw-p 000e5000 00:31 281180                     /usr/lib/x86_64-linux-gnu/libm.so.6
+7f815a811000-7f815a813000 rw-p 00000000 00:00 0 
+7f815a813000-7f815a8ad000 r--p 00000000 00:31 281310                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f815a8ad000-7f815a9be000 r-xp 0009a000 00:31 281310                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f815a9be000-7f815aa2d000 r--p 001ab000 00:31 281310                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f815aa2d000-7f815aa2e000 ---p 0021a000 00:31 281310                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f815aa2e000-7f815aa39000 r--p 0021a000 00:31 281310                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f815aa39000-7f815aa3c000 rw-p 00225000 00:31 281310                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f815aa3c000-7f815aa3f000 rw-p 00000000 00:00 0 
+7f815aa3f000-7f815aaf1000 r--p 00000000 00:31 280930                     /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+7f815aaf1000-7f815ad50000 r-xp 000b2000 00:31 280930                     /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+7f815ad50000-7f815ae22000 r--p 00311000 00:31 280930                     /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+7f815ae22000-7f815ae7d000 r--p 003e2000 00:31 280930                     /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+7f815ae7d000-7f815ae80000 rw-p 0043d000 00:31 280930                     /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+7f815ae80000-7f815ae83000 rw-p 00000000 00:00 0 
+7f815ae83000-7f815aea1000 r--p 00000000 00:31 281306                     /usr/lib/x86_64-linux-gnu/libssl.so.3
+7f815aea1000-7f815aefc000 r-xp 0001e000 00:31 281306                     /usr/lib/x86_64-linux-gnu/libssl.so.3
+7f815aefc000-7f815af19000 r--p 00079000 00:31 281306                     /usr/lib/x86_64-linux-gnu/libssl.so.3
+7f815af19000-7f815af23000 r--p 00095000 00:31 281306                     /usr/lib/x86_64-linux-gnu/libssl.so.3
+7f815af23000-7f815af27000 rw-p 0009f000 00:31 281306                     /usr/lib/x86_64-linux-gnu/libssl.so.3
+7f815af27000-7f815af2c000 r--p 00000000 00:31 927511                     /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
+7f815af2c000-7f815af49000 r-xp 00005000 00:31 927511                     /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
+7f815af49000-7f815af4e000 r--p 00022000 00:31 927511                     /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
+7f815af4e000-7f815af4f000 r--p 00026000 00:31 927511                     /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
+7f815af4f000-7f815af50000 rw-p 00027000 00:31 927511                     /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
+7f815af50000-7f815afdc000 r--p 00000000 00:31 927818                     /usr/lib/x86_64-linux-gnu/libprotobuf.so.23.0.4
+7f815afdc000-7f815b181000 r-xp 0008c000 00:31 927818                     /usr/lib/x86_64-linux-gnu/libprotobuf.so.23.0.4
+7f815b181000-7f815b209000 r--p 00231000 00:31 927818                     /usr/lib/x86_64-linux-gnu/libprotobuf.so.23.0.4
+7f815b209000-7f815b210000 r--p 002b8000 00:31 927818                     /usr/lib/x86_64-linux-gnu/libprotobuf.so.23.0.4
+7f815b210000-7f815b212000 rw-p 002bf000 00:31 927818                     /usr/lib/x86_64-linux-gnu/libprotobuf.so.23.0.4
+7f815b212000-7f815b213000 rw-p 00000000 00:00 0 
+7f815b213000-7f815b21d000 r--p 00000000 00:31 927664                     /usr/lib/x86_64-linux-gnu/libleveldb.so.1.23.0
+7f815b21d000-7f815b24c000 r-xp 0000a000 00:31 927664                     /usr/lib/x86_64-linux-gnu/libleveldb.so.1.23.0
+7f815b24c000-7f815b25a000 r--p 00039000 00:31 927664                     /usr/lib/x86_64-linux-gnu/libleveldb.so.1.23.0
+7f815b25a000-7f815b25b000 ---p 00047000 00:31 927664                     /usr/lib/x86_64-linux-gnu/libleveldb.so.1.23.0
+7f815b25b000-7f815b25d000 r--p 00047000 00:31 927664                     /usr/lib/x86_64-linux-gnu/libleveldb.so.1.23.0
+7f815b25d000-7f815b25e000 rw-p 00049000 00:31 927664                     /usr/lib/x86_64-linux-gnu/libleveldb.so.1.23.0
+7f815b267000-7f815b269000 rw-p 00000000 00:00 0 
+7f815b269000-7f815b26b000 r--p 00000000 00:31 280657                     /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f815b26b000-7f815b295000 r-xp 00002000 00:31 280657                     /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f815b295000-7f815b2a0000 r--p 0002c000 00:31 280657                     /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f815b2a1000-7f815b2a3000 r--p 00037000 00:31 280657                     /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f815b2a3000-7f815b2a5000 rw-p 00039000 00:31 280657                     /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffc5e6c2000-7ffc5e6e3000 rw-p 00000000 00:00 0                          [stack]
+7ffc5e6fa000-7ffc5e6fe000 r--p 00000000 00:00 0                          [vvar]
+7ffc5e6fe000-7ffc5e700000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
