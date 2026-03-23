@@ -11,6 +11,12 @@ message AddReply {
   int32 result = 1;
 };
 
+message HelloRequest {
+};
+message HelloResponse {
+};
+
 service CalculatorService {
   rpc Add(AddRequest) returns (AddReply);
+  rpc Hello(HelloRequest) returns (HelloResponse);
 };
