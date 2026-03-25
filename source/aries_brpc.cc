@@ -36,8 +36,8 @@ namespace AriesBrpc
     ChannelPtr Channels::get()
     {
         std::unique_lock<std::mutex> lock(_mutex);
-        uint32_t idx = (_idx++) % _channels.size();
-        return _channels[idx];
+        _idx = (_idx + 1) % _channels.size();
+        return _channels[_idx];
     }
 
     Channels::ptr ServiceChannels::find(const std::string &service_name)

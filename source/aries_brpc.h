@@ -1,3 +1,4 @@
+#pragma once
 #include <brpc/channel.h>
 #include <brpc/server.h>
 #include <mutex>
@@ -14,7 +15,7 @@ namespace AriesBrpc
     public:
         using ptr = std::shared_ptr<Channels>;
 
-        Channels();
+        Channels(){}
         void insert(const std::string &addr);
         void remove(const std::string &addr);
         ChannelPtr get() ;
@@ -31,7 +32,7 @@ namespace AriesBrpc
     class ServiceChannels
     {
     public:
-        ServiceChannels();
+        ServiceChannels(){}
         void set_watch(const std::string &service_name);
         void insert(const std::string &service_name, const std::string &addr);
         void remove(const std::string &service_name, const std::string &addr);
