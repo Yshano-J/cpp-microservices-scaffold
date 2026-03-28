@@ -1,3 +1,4 @@
+#pragma once
 // 包含头文件
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
