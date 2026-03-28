@@ -2,9 +2,11 @@
     Util工具封装：
         1.json序列化、反序列化
 */
+#pragma once
 
 #include <jsoncpp/json/json.h>
 #include <optional>
+#include <fstream>
 
 namespace aries_util
 {
@@ -14,4 +16,15 @@ namespace aries_util
         static std::optional<std::string> serialize(const Json::Value &val);
         static std::optional<Json::Value> deserialize(const std::string& input);
     };
-}
+
+    class FILE_UTIL {
+    public:
+        static bool read(const std::string& filename, std::string& content);
+        static bool write(const std::string& filename, const std::string& content);
+    };
+    
+    class STRING {
+    public:
+        static size_t split(const std::string& str, const std::string& sep, std::vector<std::string>& parts);
+    };
+}   
