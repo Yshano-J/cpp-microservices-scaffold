@@ -11,13 +11,13 @@ namespace aries_log
 {
     struct log_settings
     {
-        bool async;         // 是否启用异步日志器
-        int level;          // 日志等级
-        std::string format; // 日志输出格式
-        std::string path;   // 日志输出目标
+        bool async = false;         // 是否启用异步日志器
+        int level = 1;          // 日志等级
+        std::string format = "[%Y-%m-%d %H:%M:%S][%-8l]%v"; // 日志输出格式
+        std::string path = "stdout";   // 日志输出目标
     };
     extern std::shared_ptr<spdlog::logger> g_logger; // 声明全局日志器
-    extern void global_logger_init(const log_settings &log);
+    extern void global_logger_init(const log_settings &log = log_settings());
 
 #define FMT_PREFIX std::string("[{}:{}]: ")
 #define DBG(fmt, ...) aries_log::g_logger->debug(FMT_PREFIX + fmt, __FILE__, __LINE__, ##__VA_ARGS__)

@@ -36,6 +36,9 @@ namespace AriesBrpc
     ChannelPtr Channels::get()
     {
         std::unique_lock<std::mutex> lock(_mutex);
+        if (_channels.empty()) {
+            return ChannelPtr();
+        }
         _idx = (_idx + 1) % _channels.size();
         return _channels[_idx];
     }
@@ -66,6 +69,7 @@ namespace AriesBrpc
             return;
         }
         channels->insert(addr);
+        INFO("添加对服务 [{}][{}] 的管理", service_name, addr);
     }
     void ServiceChannels::remove(const std::string &service_name, const std::string &addr)
     {
@@ -74,6 +78,7 @@ namespace AriesBrpc
             return;
         }
         channels->remove(addr);
+        INFO("移除对服务 [{}][{}] 的管理", service_name, addr);
     }
     ChannelPtr ServiceChannels::get(const std::string &service_name)
     {

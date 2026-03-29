@@ -1,8 +1,11 @@
 
 #include "util.h"
-#include "aries_log.h"
+
 namespace aries_util
 {
+    /*
+        JSON序列化
+    */
     std::optional<std::string> JSON::serialize(const Json::Value &val)
     {
         Json::StreamWriterBuilder builder;
@@ -32,6 +35,9 @@ namespace aries_util
         return val;
     }
 
+    /*
+        文件读写
+    */
     bool FILE_UTIL::read(const std::string &filename, std::string &content)
     {
         std::ifstream ifs(filename, std::ios::in | std::ios::binary);
@@ -58,7 +64,11 @@ namespace aries_util
         ofs.write(content.c_str(), content.size());
         ofs.close();
         return true;
-    }
+    }  
+
+    /*
+        字符串操作
+    */
     size_t STRING::split(const std::string &str, const std::string &sep, std::vector<std::string> &parts)
     {
         size_t pos = 0, idx = 0;
@@ -80,5 +90,39 @@ namespace aries_util
             parts.push_back(str.substr(idx));
         
         return parts.size();
+    }
+
+    /*
+        随机数
+    */
+    std::string RANDOM::generateRandomString(size_t length, StrType type)
+    {
+        static const std::string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        static const std::string numbers = "0123456789";
+        static const std::string mixtype = characters + numbers;
+        static std::atomic<uint16_t> seed(0);
+
+        const std::string *ptr = nullptr;
+        if(type == CHARACTER) {
+            ptr = &characters;
+        }
+        else if(type == NUMBER) {
+            ptr = &numbers;
+        }
+        else if(type == MIXTYPE) {
+            ptr = &mixtype;
+        }
+
+        std::stringstream result; //  随机字符串
+        std::random_device rd; //   用于获取随机数的种子
+        std::mt19937 generator(rd()); // 随机数生成器
+
+        for(size_t i = 0; i < length; i++) {
+            int idx = generator() % ptr->size();
+            result << ptr->operator[](idx);
+        }
+
+        result << std::setfill('0') << std::setw(5) << seed.fetch_add(1);
+        return result.str();
     }
 }
