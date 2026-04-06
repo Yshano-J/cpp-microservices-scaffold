@@ -24,7 +24,7 @@ int main()
         
         {
             // transaction与pipeline操作一致
-            auto transaction = redis.transaction(false);
+            auto transaction = redis.transaction(false, false);
             auto r = transaction.redis(); // r与pipe共用一个连接
             // transaction中不能使用watch; transaction操作不能立即获取结果
 
