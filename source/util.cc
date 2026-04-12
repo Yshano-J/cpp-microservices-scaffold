@@ -6,10 +6,12 @@ namespace aries_util
     /*
         JSON序列化
     */
-    std::optional<std::string> JSON::serialize(const Json::Value &val)
+    std::optional<std::string> JSON::serialize(const Json::Value &val, bool styled)
     {
         Json::StreamWriterBuilder builder;
-        builder["indentation"] = "";
+        if(!styled) {
+            builder["indentation"] = "";
+        }
         std::unique_ptr<Json::StreamWriter> sw(builder.newStreamWriter());
         std::stringstream ss;
         int ret = sw->write(val, &ss);

@@ -19,7 +19,7 @@ namespace aries_util
 
     class JSON {
         public:
-            static std::optional<std::string> serialize(const Json::Value &val);
+            static std::optional<std::string> serialize(const Json::Value &val, bool styled = false);
             static std::optional<Json::Value> deserialize(const std::string& input);
     };
 
