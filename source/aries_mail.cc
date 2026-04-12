@@ -29,6 +29,9 @@ namespace AriesCode
             return false;
         }
 
+        curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 15L); // 连接超时时间
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L); // 数据传输超时时间
+
         // 3. 设置请求参数：url，username，password，body, from, to
         auto ret = curl_easy_setopt(curl, CURLOPT_URL, _settings.url.c_str());
         if (ret != CURLE_OK)

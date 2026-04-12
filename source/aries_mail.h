@@ -1,6 +1,8 @@
+#pragma once
 #include <curl/curl.h>
 #include <iostream>
 #include <sstream>
+#include <memory>
 
 namespace AriesCode
 {
@@ -23,6 +25,7 @@ namespace AriesCode
     class MailCodeClient : public CodeClient
     {
         public:
+            using ptr = std::shared_ptr<MailCodeClient>;
             MailCodeClient(const mail_settings& settings);
             ~MailCodeClient();
             virtual bool send(const std::string &to, const std::string &code) override;

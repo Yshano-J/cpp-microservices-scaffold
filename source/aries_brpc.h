@@ -5,6 +5,7 @@
 #include <memory>
 #include <vector>
 #include <unordered_map>
+#include <optional>
 
 namespace AriesBrpc
 {
@@ -18,14 +19,14 @@ namespace AriesBrpc
         Channels(){}
         void insert(const std::string &addr);
         void remove(const std::string &addr);
-        ChannelPtr get() ;
+        ChannelPtr get(); // 获取结点信道
+        std::optional<std::string> getAddr(); // 获取结点地址
 
     public:
         std::mutex _mutex;
         std::string _service_name;                                // 服务名称
         uint32_t _idx;                                            // 轮询下标
-        std::vector<ChannelPtr> _channels;                        // 方便寻找
-        std::unordered_map<std::string, ChannelPtr> _channel_map; // 便于增删
+        std::vector<std::pair<std::string, ChannelPtr>> _channels;// 方便寻找
     };
 
     // 管理channel集合
@@ -37,6 +38,8 @@ namespace AriesBrpc
         void insert(const std::string &service_name, const std::string &addr);
         void remove(const std::string &service_name, const std::string &addr);
         ChannelPtr get(const std::string &service_name);
+        std::optional<std::string> getAddr(const std::string &service_name);
+
     private:
         Channels::ptr find(const std::string &service_name);
     public:

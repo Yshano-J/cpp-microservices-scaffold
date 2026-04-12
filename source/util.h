@@ -39,5 +39,6 @@ namespace aries_util
     class RANDOM {
         public:
             static std::string generateRandomString(size_t length = DEFAULT_RANDOM_LENGTH, StrType type = MIXTYPE);
+            static size_t generateRandomNumberRange(size_t min, size_t max);
     };
 }

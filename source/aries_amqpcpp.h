@@ -42,6 +42,7 @@ namespace AriesAMQP {
         private:
             static void callback(struct ev_loop *loop, ev_async *watcher, int32_t revents);
         private:
+            std::mutex _declare_mutex;
             std::mutex _mutex;
             std::condition_variable _cond;
             struct ev_loop *_loop;

@@ -133,6 +133,7 @@ namespace aries_ffmpeg {
                 pkt.pts = av_rescale_q(0, AV_TIME_BASE_Q, inputStream->time_base);
                 pkt.dts = pkt.pts;
             }
+            // 输入数据时间戳转换为输出数据时间戳
             av_packet_rescale_ts(&pkt, inputStream->time_base, outputStream->time_base);
 
             ret = av_interleaved_write_frame(outputContext, &pkt);

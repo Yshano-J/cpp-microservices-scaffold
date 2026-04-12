@@ -123,8 +123,14 @@ namespace aries_util
             int idx = generator() % ptr->size();
             result << ptr->operator[](idx);
         }
-
-        result << std::setfill('0') << std::setw(5) << seed.fetch_add(1);
         return result.str();
+    }
+
+    size_t RANDOM::generateRandomNumberRange(size_t min, size_t max)
+    {
+        std::random_device rd;
+        std::mt19937 generator(rd());
+        std::uniform_int_distribution<size_t> distribution(min, max);
+        return distribution(generator);
     }
 }

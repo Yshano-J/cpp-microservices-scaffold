@@ -10,23 +10,17 @@ namespace AriesBrpc
         auto channel = std::make_shared<brpc::Channel>();
         brpc::ChannelOptions option;
         option.protocol = "baidu_std";
+        option.timeout_ms = 30000; // 超时时间设置为30秒
         channel->Init(addr.c_str(), &option);
-        _channels.push_back(channel);
-        _channel_map.insert(std::make_pair(addr, channel));
+        _channels.push_back(std::make_pair(addr, channel));
     }
 
     void Channels::remove(const std::string &addr)
     {
         std::unique_lock<std::mutex> lock(_mutex);
-        auto it = _channel_map.find(addr);
-        if (it == _channel_map.end())
-        {
-            WARNING("channel not found: %s", addr.c_str());
-        }
-        _channel_map.erase(it);
         for (auto iter = _channels.begin(); iter != _channels.end();++iter)
         {
-            if (*iter == it->second)
+            if (iter->first == addr)
             {
                 iter = _channels.erase(iter);
                 break;
@@ -40,7 +34,18 @@ namespace AriesBrpc
             return ChannelPtr();
         }
         _idx = (_idx + 1) % _channels.size();
-        return _channels[_idx];
+        return _channels[_idx].second;
+    }
+
+    std::optional<std::string> Channels::getAddr()
+    {
+        std::unique_lock<std::mutex> lock(_mutex);
+        if (_channels.empty())
+        {
+            return std::nullopt;
+        }
+        _idx = (_idx + 1) % _channels.size();
+        return _channels[_idx].first;
     }
 
     Channels::ptr ServiceChannels::find(const std::string &service_name)
@@ -71,6 +76,7 @@ namespace AriesBrpc
         channels->insert(addr);
         INFO("添加对服务 [{}][{}] 的管理", service_name, addr);
     }
+
     void ServiceChannels::remove(const std::string &service_name, const std::string &addr)
     {
         Channels::ptr channels = find(service_name);// 查找channel集合
@@ -80,6 +86,7 @@ namespace AriesBrpc
         channels->remove(addr);
         INFO("移除对服务 [{}][{}] 的管理", service_name, addr);
     }
+    
     ChannelPtr ServiceChannels::get(const std::string &service_name)
     {
         Channels::ptr channels = find(service_name);// 查找channel集合
@@ -87,6 +94,15 @@ namespace AriesBrpc
             return ChannelPtr();
         }
         return channels->get();
+    }
+
+    std::optional<std::string> ServiceChannels::getAddr(const std::string &service_name)
+    {
+        Channels::ptr channels = find(service_name);// 查找channel集合
+        if(!channels) {
+            return std::nullopt;
+        }
+        return channels->getAddr();
     }
 
     google::protobuf::Closure* ClosureFactory::create(callback_t &&cb) {

@@ -51,7 +51,8 @@ namespace AriesAMQP
     }
 
     void MQClient::_declare(const declare_setting &setting, const AMQP::Table &args, bool is_dlx){
-        std::unique_lock<std::mutex> lock(_mutex);
+        std::unique_lock<std::mutex> declare_lock(_declare_mutex); // 用于保护声明操作
+        std::unique_lock<std::mutex> lock(_mutex); // 用于保护等待条件变量
 
         std::string exchange, queue, binding_key;
         if(is_dlx) {
@@ -73,21 +74,23 @@ namespace AriesAMQP
                         _channel.bindQueue(exchange, queue, binding_key)
                             .onSuccess([=](){
                                 INFO("bind queue {} to exchange {} success", queue, exchange);
-                                std::lock_guard<std::mutex> lock(_mutex);
                                 _cond.notify_one();  // 声明成功，通知等待线程
                             })
                             .onError([=](const char* msg){
                                 ERROR("bind queue to exchange failed: {}", msg);
+                                _cond.notify_one();
                                 abort();
                             });
                         })
                     .onError([=](const char *msg){
                         ERROR("declare queue failed: {}", msg);
+                        _cond.notify_one();
                         abort(); 
                     });
             })
             .onError([=](const char *msg){
                 ERROR("declare exchange failed: {}", msg);
+                _cond.notify_one();
                 abort(); 
             });
         _cond.wait(lock);
@@ -109,9 +112,12 @@ namespace AriesAMQP
         return _channel.publish(exchange, binding_key, msg);
     }
     void MQClient::consume(const std::string &queue, const MessageCallBack &callback) {
+        std::unique_lock<std::mutex> declare_lock(_declare_mutex);
+        std::unique_lock<std::mutex> lock(_mutex);
         _channel.consume(queue)
             .onSuccess([=](){ 
-                INFO("consume success"); 
+                INFO("consume success");
+                _cond.notify_one(); 
             })
             .onMessage([=](const AMQP::Message &message,
                            uint64_t delivery_tag,
@@ -119,9 +125,11 @@ namespace AriesAMQP
                     callback(message.body(), message.size());
             })
             .onError([=](const char *message){
-                WARNING("consume message failed: {}", message); 
+                WARNING("consume message failed: {}", message);
+                _cond.notify_one();
                 abort(); 
             });
+        _cond.wait(lock);
     }
 
     void MQClient::wait() {

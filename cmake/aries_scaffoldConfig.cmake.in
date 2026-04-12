@@ -1,0 +1,14 @@
+@PACKAGE_INIT@ # CMake 提供的初始化宏
+
+# 添加⾃定义Find模块路径
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/modules)
+
+# 声明所有传递依赖（⾃动触发find_package）
+include("${CMAKE_CURRENT_LIST_DIR}/modules/Finddepends.cmake")
+find_my_depends()
+
+# 包含⽬标导出⽂件
+include(${CMAKE_CURRENT_LIST_DIR}/aries_scaffoldTargets.cmake)
+
+# 可选：验证组件或其他配置
+check_required_components(aries_scaffold)
